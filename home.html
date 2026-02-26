@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo-Enterprise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 
+       NAVBAR
+   -->
+  <nav class="navbar">
+    <h2 class="logo">ToDo-Enterprise</h2>
+    <div>
+    <button id="darkToggle" class="icon-btn theme-toggle">
+      <span class="icon moon">🌙</span>
+      <span class="icon sun">☀</span>
+    </button>
+      <button id="logoutBtn" class="nav-btn primary">Logout</button>
+    </div>
+  </nav>
+
+  <!-- 
+       DASHBOARD HEADER
+  -->
+  <section class="dashboard-header">
+    <h1>Your Task Board</h1>
+    <button id="openTaskModal" class="gradient-btn large-btn">
+      + Add Task
+    </button>
+  </section>
+
+  <!-- 
+       KANBAN BOARD
+   -->
+  <section class="board">
+
+    <div class="column" data-status="todo">
+      <h3>To-Do</h3>
+      <div class="task-list" id="todo"></div>
+    </div>
+
+    <div class="column" data-status="ongoing">
+      <h3>Ongoing</h3>
+      <div class="task-list" id="ongoing"></div>
+    </div>
+
+    <div class="column" data-status="completed">
+      <h3>Completed</h3>
+      <div class="task-list" id="completed"></div>
+    </div>
+
+  </section>
+
+  <!-- 
+       ADD TASK MODAL
+       (Placed at end of body for proper stacking)
+ -->
+  <div class="modal hidden" id="taskModal">
+    <div class="modal-content">
+
+      <button class="modal-close" id="taskCloseBtn">&times;</button>
+
+      <h2>Add New Task</h2>
+
+      <!-- TITLE -->
+      <div class="input-group">
+        <input type="text" id="taskTitle" placeholder="Task Title" required>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <div class="input-group">
+        <textarea id="taskDesc" placeholder="Task Description"></textarea>
+      </div>
+
+      <!-- PRIORITY -->
+      <div class="input-group">
+        <select id="taskPriority">
+          <option value="low">Low Priority</option>
+          <option value="medium">Medium Priority</option>
+          <option value="high">High Priority</option>
+        </select>
+      </div>
+
+      <!-- CALENDAR + TIME -->
+      <div class="input-group">
+        <input type="datetime-local" id="taskDueDate">
+      </div>
+
+      <!-- SAVE BUTTON -->
+      <button id="saveTask" class="gradient-btn full-btn">
+        Save Task
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- Firebase Logic -->
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>

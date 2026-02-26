@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo-Enterprise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <h2 class="logo">ToDo-Enterprise</h2>
+    <div>
+    <button id="darkToggle" class="icon-btn theme-toggle">
+      <span class="icon moon">🌙</span>
+      <span class="icon sun">☀</span>
+    </button>
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="signup.html" class="nav-btn primary">Sign Up</a>
+    </div>
+  </nav>
+
+  <!-- CENTER LOGIN SECTION -->
+  <section class="auth-section">
+    <div class="auth-card">
+
+      <h2>Welcome Back</h2>
+      <p class="auth-subtext">Login to manage your tasks</p>
+
+      <!-- EMAIL -->
+      <div class="input-group">
+        <input type="email" id="loginEmail" placeholder="Enter your email" required>
+      </div>
+
+      <!-- PASSWORD WITH EYE TOGGLE -->
+      <div class="input-group password-wrapper">
+        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+        <span class="toggle-password" id="loginEye">👁</span>
+      </div>
+
+      <!-- LOGIN BUTTON -->
+      <button id="loginBtn" class="gradient-btn full-btn">
+        Login
+      </button>
+
+      <div class="auth-footer">
+        <p>
+          Don't have an account?
+          <a href="signup.html">Create one</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SCRIPT SECTION -->
+  <script>
+    
+    /* 
+       PASSWORD SHOW / HIDE
+     */
+
+    const passwordInput = document.getElementById("loginPassword");
+    const eyeIcon = document.getElementById("loginEye");
+
+    eyeIcon.addEventListener("click", () => {
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.textContent = "🙈";
+      } else {
+        passwordInput.type = "password";
+        eyeIcon.textContent = "👁";
+      }
+    });
+  </script>
+
+  <!-- Firebase script -->
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>

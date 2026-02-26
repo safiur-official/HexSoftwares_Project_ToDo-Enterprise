@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SIGNUP | ToDo-Enterprise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <h2 class="logo">ToDo-Enterprise</h2>
+    <div>
+    <button id="darkToggle" class="icon-btn theme-toggle">
+      <span class="icon moon">🌙</span>
+      <span class="icon sun">☀</span>
+    </button>
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="login.html" class="nav-btn primary">Login</a>
+    </div>
+  </nav>
+
+  <!-- CENTER SIGNUP SECTION -->
+  <section class="auth-section">
+    <div class="auth-card">
+
+      <h2>Create Account</h2>
+      <p class="auth-subtext">Start managing your tasks today</p>
+
+      <!-- EMAIL -->
+      <div class="input-group">
+        <input type="email" id="signupEmail" placeholder="Enter your email" required>
+      </div>
+
+      <!-- PASSWORD WITH EYE TOGGLE -->
+      <div class="input-group password-wrapper">
+        <input type="password" id="signupPassword" placeholder="Create a password" required>
+        <span class="toggle-password" id="signupEye">👁</span>
+      </div>
+
+      <!-- SIGNUP BUTTON -->
+      <button id="signupBtn" class="gradient-btn full-btn">
+        Create Account
+      </button>
+
+      <div class="auth-footer">
+        <p>
+          Already have an account?
+          <a href="login.html">Login here</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SCRIPT SECTION -->
+  <script>
+   
+    /* 
+       PASSWORD SHOW / HIDE
+     */
+
+    const passwordInput = document.getElementById("signupPassword");
+    const eyeIcon = document.getElementById("signupEye");
+
+    eyeIcon.addEventListener("click", () => {
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.textContent = "🙈";
+      } else {
+        passwordInput.type = "password";
+        eyeIcon.textContent = "👁";
+      }
+    });
+  </script>
+
+  <!-- Firebase script -->
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
