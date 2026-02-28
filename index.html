@@ -29,18 +29,12 @@
     </div>
   </section>
 
-  <script>
-    // Dark mode persistent
-    if (localStorage.getItem("darkMode") === "true") {
-      document.body.classList.add("dark");
-    }
+  <!-- Firebase script -->
+ <script type="module" src="app.js"></script>
 
-    document.getElementById("darkToggle").onclick = () => {
-      document.body.classList.toggle("dark");
-      localStorage.setItem("darkMode",
-        document.body.classList.contains("dark"));
-    };
-  </script>
+  <footer class="app-footer">
+  © <span id="currentYear"></span> SK Safiur Rahaman
+</footer>
 
 </body>
 </html>

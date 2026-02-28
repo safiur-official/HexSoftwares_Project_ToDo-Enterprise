@@ -329,3 +329,54 @@ document.querySelectorAll(".column").forEach(column => {
 
 });
 }
+
+/* ======================================
+   AUTO YEAR FOOTER UPDATE
+====================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const yearSpan = document.getElementById("currentYear");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+});
+
+/* ======================================
+   PREMIUM MODAL CONTROL
+====================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const openBtn = document.getElementById("openTaskModal");
+  const modal = document.getElementById("taskModal");
+  const closeBtn = document.getElementById("taskCloseBtn");
+  const overlay = document.querySelector(".modal-overlay");
+
+  if (openBtn && modal) {
+
+    openBtn.addEventListener("click", () => {
+      modal.classList.remove("hidden");
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+      });
+    }
+
+    if (overlay) {
+      overlay.addEventListener("click", () => {
+        modal.classList.add("hidden");
+      });
+    }
+
+    // ESC key close
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        modal.classList.add("hidden");
+      }
+    });
+
+  }
+
+});

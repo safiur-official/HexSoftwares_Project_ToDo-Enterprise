@@ -58,6 +58,8 @@
        (Placed at end of body for proper stacking)
  -->
   <div class="modal hidden" id="taskModal">
+      <div class="modal-overlay"></div>
+
     <div class="modal-content">
 
       <button class="modal-close" id="taskCloseBtn">&times;</button>
@@ -98,7 +100,11 @@
 
 
   <!-- Firebase Logic -->
-  <script type="module" src="app.js"></script>
+ <script type="module" src="app.js"></script>
+
+  <footer class="app-footer">
+  © <span id="currentYear"></span> SK Safiur Rahaman
+</footer>
 
 </body>
 </html>
