@@ -368,8 +368,8 @@ body.dark {
   background: var(--card-bg);
   padding: 10px 0;
   margin-bottom: 15px;
-  font-size: 1.1rem;
-  border-bottom: 1px solid var(--card-border);
+  font-size: 1.5rem;
+  border-bottom: 0.5px solid var(--card-border);
 }
 
 /* ONLY task list scrolls */
