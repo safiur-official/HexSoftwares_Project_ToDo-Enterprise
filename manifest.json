@@ -1,6 +1,5 @@
 {
   "name": "Smart To-Do",
-  "short_name": "SmartTasks",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",

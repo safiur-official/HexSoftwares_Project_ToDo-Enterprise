@@ -1,4 +1,4 @@
-const CACHE_NAME = "smarttasks-v1";
+const CACHE_NAME = "Smart To-Do-v1";
 
 const urlsToCache = [
   "/",
