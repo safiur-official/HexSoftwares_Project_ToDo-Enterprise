@@ -610,25 +610,86 @@ body.dark .status-select {
   color: #fff;
 }
 
+/* ================= CAPSULE ACTION BUTTONS ================= */
+
 .edit-btn,
 .delete-btn {
-  padding: 5px 10px;
-  border-radius: 6px;
+  position: relative;
+  padding: 8px 18px;
+  border-radius: 50px;              /* Full capsule */
   border: none;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 38px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.edit-btn {
-  background: #2575fc;
-  color: #fff;
-}
+/* ================= REFINED CAPSULE ACTION BUTTONS ================= */
 
+.edit-btn,
 .delete-btn {
-  background: #ff4d4d;
+  position: relative;
+  padding: 6px 14px;              /* reduced from 8px 18px */
+  border-radius: 20px;            /* still capsule */
+  border: none;
+  cursor: pointer;
+  font-size: 0.78rem;             /* slightly smaller */
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: all 0.22s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 32px;               /* reduced height */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+/* ===== EDIT BUTTON ===== */
+.edit-btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: #fff;
 }
 
+.edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37,99,235,0.35);
+}
+
+.edit-btn:active {
+  transform: scale(0.96);
+}
+
+/* ===== DELETE BUTTON ===== */
+.delete-btn {
+  background: linear-gradient(135deg, #ff4d4d, #e63946);
+  color: #fff;
+}
+
+.delete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(230,57,70,0.35);
+}
+
+.delete-btn:active {
+  transform: scale(0.96);
+}
+
+/* Dark mode refinements */
+body.dark .edit-btn {
+  background: linear-gradient(135deg, #4f8dfd, #1e40af);
+}
+
+body.dark .delete-btn {
+  background: linear-gradient(135deg, #ff6b6b, #c1121f);
+}
 /* 
    TASK MOVE ANIMATION
  */
