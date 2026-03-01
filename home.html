@@ -21,9 +21,10 @@
     </div>
   </nav>
 
-  <!-- 
-       DASHBOARD HEADER
-  -->
+<!-- DASHBOARD WRAPPER START -->
+<div class="dashboard-wrapper">
+
+  <!-- DASHBOARD HEADER -->
   <section class="dashboard-header">
     <h1>Your Task Board</h1>
     <button id="openTaskModal" class="gradient-btn large-btn">
@@ -31,9 +32,7 @@
     </button>
   </section>
 
-  <!-- 
-       KANBAN BOARD
-   -->
+  <!-- KANBAN BOARD -->
   <section class="board">
 
     <div class="column" data-status="todo">
@@ -52,6 +51,9 @@
     </div>
 
   </section>
+
+</div>
+<!-- DASHBOARD WRAPPER END -->
 
   <!-- 
        ADD TASK MODAL
@@ -79,11 +81,13 @@
       <!-- PRIORITY -->
       <div class="input-group">
         <select id="taskPriority">
-          <option value="low">Low Priority</option>
-          <option value="medium">Medium Priority</option>
-          <option value="high">High Priority</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
         </select>
       </div>
+
+      
 
       <!-- CALENDAR + TIME -->
       <div class="input-group">
@@ -99,7 +103,7 @@
   </div>
 
 
-  <!-- Firebase Logic -->
+ <!-- Firebase script -->
  <script type="module" src="app.js"></script>
 
   <footer class="app-footer">

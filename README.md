@@ -1,171 +1,158 @@
 🚀 ToDo-Enterprise
-A Luxury SaaS-Style Kanban Task Management Web Application
-Built with Firebase, Vanilla JavaScript, and Modern Glass UI Design.
+Board
+🔥 Real-Time Kanban Task Manager with Intelligent Deadline Tracking
+A modern, production-ready Kanban-based Task Management Web Application built using HTML5, CSS3, Vanilla JavaScript (ES6+) and Firebase (Auth + Firestore).
 
-🌟 Overview
-ToDo-Enterprise is a modern, responsive, enterprise-style task management system inspired by professional productivity platforms.
+Designed with premium UI effects, real-time updates, and intelligent deadline intelligence.
 
-It features:
+🌟 Live Features
 
-🔐 Secure Firebase Authentication (Login / Signup)
+🔐 Authentication System
+Firebase Email/Password Authentication
+Secure route protection
+Auto redirect for authenticated users
+Session persistence
 
-📊 Real-time Kanban Board
+📋 Smart Kanban Board
+3 Columns:
+📝 To-Do
+⚙ Ongoing
+✅ Completed
+Native HTML5 Drag & Drop support
+Dropdown status changer
+Real-time Firestore sync
+Smooth move animation
 
-🎯 Drag & Drop Task Management
+⏳ Intelligent Deadline System
+Active Tasks (To-Do / Ongoing)
+Shows:
+Due Date in format: dd/mm/yyyy HH:MM:SS
+Live countdown timer
+Auto refresh every second
+Overdue Detection
+Soft red glow for overdue tasks
+Strong aggressive pulse for:
+High Priority + Overdue tasks
+Dynamic critical state
 
-🌓 Animated Dark / Light Mode
+✅ Smart Completion Intelligence
+Completed tasks show:
 
-🗓 Calendar + Time-Based Task Scheduling
+✔ Completed 2 hours ago • Early
+✔ Completed 10 minutes ago • Late
+✔ Completed 1 hour ago • On time
 
-🎨 Glassmorphism SaaS UI
+Auto detects:
+Completed Early
+Completed On Time
+Completed Late
 
-🔄 Real-Time Firestore Sync
+Dynamic color coding:
+🟢 Early
+🟡 On Time
+🔴 Late
 
-👤 User-Based Task Isolation
+📊 Relative Time Engine
+“Just now”
+“5 minutes ago”
+“2 hours ago”
+“3 days ago”
+Auto refresh every 60 seconds
 
-This project demonstrates full-stack frontend architecture with scalable structure and professional UX design.
+🎨 Premium UI/UX System
+Glassmorphism cards
+Neon glow effects
+High priority pulse animation
+Dark / Light Mode with smooth transition
+Gradient animated buttons
+Custom scrollbar
+Responsive layout
+Premium hover effects
+
+🔒 Locked Completed Tasks
+Completed tasks are:
+Non-editable
+Non-draggable
+Status locked
+Watermark shows:
+Created date
+Due date (or “No due date”)
+
+🧠 Smart Sorting Algorithm
+Tasks auto-sort by:
+Priority (High → Medium → Low)
+Due Date (Earliest first)
+Ensures important work stays visible.
+
+⚡ Real-Time Firestore Integration
+Uses:
+onSnapshot() listener
+serverTimestamp()
+Instant UI updates across sessions
+No manual refresh required
 
 🛠 Tech Stack
-Frontend
-HTML5 (Semantic Markup)
-CSS3 (Flexbox, Glass UI, Animations)
-Vanilla JavaScript (ES6+ Modular Code)
-Backend (BaaS)
-Firebase Authentication
-Firebase Firestore (Real-time NoSQL Database)
-
-✨ 
-
-🔐 Authentication
-Email & Password Signup
-Secure Login
-Custom Validation (No browser default popups)
-Firebase error handling
-Auto Redirect Protection
-Logout System
-
-📋 Task Management
-Add Task with:
-Title
-Description
-Priority
-Due Date & Time
-Real-time database sync
-User-specific task visibility
-Delete task
-Drag & Drop between:
-To-Do
-Ongoing
-Completed
-
-🎨 UI/UX Enhancements
-Glassmorphism cards
-Floating gradient CTA button
-Animated Moon ↔ Sun Dark Mode toggle
-Smooth page fade-in animation
-Premium hover glow effects
-Stripe-inspired centered navbar
-Responsive layout
+Technology	Usage
+HTML5	Semantic structure
+CSS3	Modern UI, Animations, Glassmorphism
+JavaScript (ES6+)	App Logic
+Firebase Auth	User Authentication
+Firestore	Real-Time Database
+Native Drag API	Task movement
 
 📁 Project Structure
-ToDo-Enterprise/
-│
-├── index.html        → Landing Page
-├── login.html        → Login Page
-├── signup.html       → Signup Page
-├── home.html         → Protected Dashboard
-├── style.css         → Complete UI Styling
-└── app.js            → Firebase + Logic
+📂 project-root
+ ├── index.html
+ ├── login.html
+ ├── signup.html
+ ├── home.html
+ ├── style.css
+ ├── script.js
+ ├── bg-light.png
+ ├── bg-dark.png
+ └── README.md
 
-🔥 How It Works
-User signs up or logs in via Firebase Auth.
-On successful authentication:
-User is redirected to the dashboard.
-Tasks are stored in Firestore with:
-uid
-title
-description
-priority
-dueDate
-status
-createdAt
+⚙️ Installation & Setup
+1️⃣ Clone repository:
+git clone https://github.com/safiur-official/HexSoftwares_Project_ToDo-Enterprise.git
+2️⃣ Open project folder
+3️⃣ Replace Firebase config in script.js with your own project credentials
+4️⃣ Run using Live Server or open index.html
 
-Real-time snapshot listener updates UI instantly.
-Dragging tasks updates Firestore status field.
+🔥 Advanced Logic Implemented
+High + Overdue = Critical glow
+Live countdown engine (setInterval)
+Relative time engine
+Firestore timestamp conversion handling
+Secure modal state management
+Editing system with dynamic ID tracking
 
-🔐 Firestore Rules
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /tasks/{taskId} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
+📱 Responsive Design
+Desktop optimized
+Tablet friendly
+Mobile stacked layout
+Scroll-isolated columns
 
-🌓 Dark Mode System
-Animated icon transition (🌙 → ☀)
-Persistent using localStorage
-Smooth gradient background shift
-Works across all pages
+🎯 Key Highlights
+✔ Enterprise-level UI
+✔ Real-time data sync
+✔ Smart deadline intelligence
+✔ Premium animated interface
+✔ Clean modular JavaScript
+✔ Production-ready architecture
 
-🧠 Learning Highlights
-
-This project demonstrates:
-Authentication flow control
-State-based UI rendering
-Real-time database architecture
-Clean separation of pages
-Custom form validation
-Stacking context handling (modals)
-Responsive SaaS layout design
-UX micro-interactions
-
-🚀 Deployment
-You can deploy using:
-Firebase Hosting
-Netlify
-Vercel
-GitHub Pages (frontend only)
-Make sure to configure your Firebase project keys inside app.js.
-
-📸 Screenshots (Add Your Images Here)
-
-Landing Page
-![alt text](image.png)
-Login Page
-![alt text](image-1.png)
-Dashboard
-![alt text](image-3.png)
-Dark Mode
-![alt text](image-2.png)
-Drag & Drop
-![alt text](image-4.png)
-
-
-📈 Future Improvements
-
-🔔 Due date reminders
-
-📊 Analytics dashboard
-
-📱 PWA installable version
-
-🧠 Search & filtering
-
-👥 Role-based access system
-
-📤 Export tasks as CSV
-
-🌍 Multi-language support
-
-👨‍💻 Author
+🧑‍💻 Author
 SK Safiur Rahaman
-Full-Stack Web Enthusiast
+Web & Full Stack Developer
 
-📄 License
-This project is for educational and portfolio use.
+⭐ If You Like This Project
+Give it a ⭐ on GitHub!
 
-⭐ If you like this project
-Give it a star ⭐ on GitHub
-and feel free to fork or contribute.
+🚀 Future Enhancements (Planned)
+Analytics Dashboard (Task statistics)
+Productivity heatmap
+Reminder notifications
+Task tags & filtering
+PWA offline support
+Multi-user shared boards
+
