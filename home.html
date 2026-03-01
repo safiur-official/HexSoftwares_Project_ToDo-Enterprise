@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6a11cb">
   <meta charset="UTF-8">
-  <title>ToDo-Enterprise</title>
+  <title>Smart To-Do</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +13,7 @@
        NAVBAR
    -->
   <nav class="navbar">
-    <h2 class="logo">ToDo-Enterprise</h2>
+    <h2 class="logo">Smart To-Do</h2>
     <div>
     <button id="darkToggle" class="icon-btn theme-toggle">
       <span class="icon moon">🌙</span>
@@ -36,17 +38,28 @@
   <section class="board">
 
     <div class="column" data-status="todo">
-      <h3>To-Do</h3>
+      <h3 class="column-header">
+         📝 To-Do
+
+        <span class="toggle-icon">▾</span>
+      </h3>
       <div class="task-list" id="todo"></div>
     </div>
 
     <div class="column" data-status="ongoing">
-      <h3>Ongoing</h3>
+      <h3 class="column-header">
+        ⚙ Ongoing  
+        <span class="toggle-icon">▾</span>
+      </h3>
       <div class="task-list" id="ongoing"></div>
     </div>
 
     <div class="column" data-status="completed">
-      <h3>Completed</h3>
+      <h3 class="column-header">
+        ✅ Completed
+  
+        <span class="toggle-icon">▾</span>
+      </h3>      
       <div class="task-list" id="completed"></div>
     </div>
 

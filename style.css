@@ -3,8 +3,9 @@
  */
 
 html, body {
-  height: 100%;
-  overflow: hidden;   /* disables full page scroll */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 :root {
@@ -60,9 +61,11 @@ body.dark {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;   /* mobile first */
   align-items: center;
-  padding: 20px 50px;
+  gap: 12px;
+  padding: 20px;
+  text-align: center;
 }
 
 .navbar > div {
@@ -304,10 +307,9 @@ body.dark {
  */
 
 .dashboard-wrapper {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 140px); 
-  /* adjust 140px depending on navbar+footer height */
 }
 
 .dashboard-header {
@@ -318,11 +320,10 @@ body.dark {
 }
 
 .board {
-  flex: 1;
   display: flex;
-  gap: 30px;
-  padding: 0 40px 20px;
-  overflow: hidden; /* prevents board scroll */
+  flex-direction: column;   /* MOBILE FIRST */
+  gap: 20px;
+  padding: 20px;
 }
 
 /* 
@@ -330,31 +331,51 @@ body.dark {
  */
 
 .column {
-  flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
-
-  padding: 20px;
+  padding: 16px;
   border-radius: 12px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
+}
 
-  overflow: hidden;   /* IMPORTANT */
+.column.collapsed .task-list {
+  display: none;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.column.collapsed .toggle-icon {
+  transform: rotate(-90deg);
 }
 
 /* Column title stays fixed */
 .column h3 {
-  flex-shrink: 0;
-  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--card-bg);
+  padding: 10px 0;
+  margin-bottom: 15px;
   font-size: 1.1rem;
-  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--card-border);
 }
 
 /* ONLY task list scrolls */
 .task-list {
-  flex: 1;
+  max-height: 60vh;
   overflow-y: auto;
-  padding-right: 5px; /* space for scrollbar */
 }
 
 /* Smooth scrollbar */
@@ -480,15 +501,28 @@ body {
    RESPONSIVE
  */
 
-@media (max-width: 900px) {
-  .board {
-    flex-direction: column;
+@media (min-width: 900px) {
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
   }
 
-  .dashboard-header {
-    flex-direction: column;
-    gap: 20px;
+  .board {
+    flex-direction: row;   /* desktop horizontal */
+    align-items: flex-start;
   }
+
+  .column {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .task-list {
+    max-height: 70vh;
+  }
+
 }
 
 /* 
@@ -815,4 +849,17 @@ body.dark .task-due.completed-early {
 
 body.dark .task-due.completed-late {
   color: #ff6b6b;
+}
+
+.gradient-btn,
+.nav-btn,
+.edit-btn,
+.delete-btn,
+.status-select {
+  min-height: 44px;   /* touch-friendly */
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 420px;
 }

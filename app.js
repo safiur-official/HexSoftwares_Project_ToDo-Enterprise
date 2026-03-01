@@ -1,3 +1,23 @@
+/*!
+ * Smart To-Do
+ * Modern Kanban Task Manager (PWA Ready)
+ *
+ * © 2026 SK Safiur Rahaman
+ * Released under the MIT License
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files to deal
+ * in the Software without restriction, subject to the conditions
+ * stated in the MIT License.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+ */
+
+
+
+
+
+
 let editingTaskId = null;
 "use strict";
 
@@ -259,16 +279,17 @@ function createTaskCard(task) {
   function formatTimestamp(ts) {
   if (!ts) return "";
 
-  // Handle pending serverTimestamp
+  let date;
+
   if (ts.seconds) {
-    return new Date(ts.seconds * 1000).toLocaleString();
+    date = new Date(ts.seconds * 1000);
+  } else if (ts.toDate) {
+    date = ts.toDate();
+  } else {
+    date = new Date(ts);
   }
 
-  if (ts.toDate) {
-    return ts.toDate().toLocaleString();
-  }
-
-  return "";
+  return formatDateTime(date);
 }
 
   const card = document.createElement("div");
@@ -566,11 +587,16 @@ function formatDateTime(dateInput) {
   const month = String(d.getMonth() + 1).padStart(2, "0");
   const year = d.getFullYear();
 
-  const hours = String(d.getHours()).padStart(2, "0");
+  let hours = d.getHours();
   const minutes = String(d.getMinutes()).padStart(2, "0");
   const seconds = String(d.getSeconds()).padStart(2, "0");
 
-  return `${day}/${month}/${year}  ${hours}:${minutes}:${seconds}`;
+  const ampm = hours >= 12 ? "am" : "pm";
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  hours = String(hours).padStart(2, "0");
+
+  return `${day}/${month}/${year}  ${hours}:${minutes}:${seconds} ${ampm}`;
 }
 
 function getRemainingTime(dueDate) {
@@ -644,3 +670,30 @@ setInterval(() => {
     el.textContent = timeAgo(JSON.parse(timestamp));
   });
 }, 60000); // update every 60 sec
+
+
+/* ================= COLUMN COLLAPSE ================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.querySelectorAll(".column-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const column = header.closest(".column");
+      column.classList.toggle("collapsed");
+    });
+  });
+
+});
+
+
+
+/* ================= PWA SERVICE WORKER ================= */
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then(() => console.log("Service Worker Registered"))
+      .catch(err => console.log("SW registration failed:", err));
+  });
+}
