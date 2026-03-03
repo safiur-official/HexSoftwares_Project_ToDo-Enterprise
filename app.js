@@ -31,8 +31,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
-} from 
+  onAuthStateChanged,
+  sendPasswordResetEmail
+} 
+from 
 "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 import {
@@ -121,6 +123,85 @@ if (loginBtn) {
       window.location.href = "home.html";
     } catch (err) {
       alert(err.message);
+    }
+  });
+}
+
+const openResetModal = document.getElementById("openResetModal");
+const resetModal = document.getElementById("resetModal");
+const closeResetModal = document.getElementById("closeResetModal");
+const resetBtn = document.getElementById("resetBtn");
+const resetEmail = document.getElementById("resetEmail");
+const resetMessage = document.getElementById("resetMessage");
+
+if (openResetModal) {
+  openResetModal.addEventListener("click", () => {
+    resetModal.classList.remove("hidden");
+    resetMessage.textContent = "";
+  });
+}
+
+if (closeResetModal) {
+  closeResetModal.addEventListener("click", () => {
+    resetModal.classList.add("hidden");
+  });
+}
+
+if (resetModal) {
+  resetModal.addEventListener("click", (e) => {
+    if (e.target === resetModal) {
+      resetModal.classList.add("hidden");
+    }
+  });
+}
+
+if (resetBtn) {
+  resetBtn.addEventListener("click", async () => {
+
+    const email = resetEmail.value.trim();
+    const successBox = document.getElementById("resetSuccess");
+
+    resetMessage.textContent = "";
+    successBox.classList.add("hidden");
+
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+      resetMessage.textContent = "Please enter a valid email address.";
+      resetMessage.className = "reset-message reset-error";
+      return;
+    }
+
+    try {
+      resetBtn.disabled = true;
+      resetBtn.textContent = "Sending...";
+
+      await sendPasswordResetEmail(auth, email);
+
+      // Hide form elements
+      resetEmail.style.display = "none";
+      resetBtn.style.display = "none";
+
+      // Show animated success
+      successBox.classList.remove("hidden");
+
+      // Auto close after 3 seconds
+      setTimeout(() => {
+        resetModal.classList.add("hidden");
+
+        // Reset UI for next open
+        resetEmail.style.display = "block";
+        resetBtn.style.display = "block";
+        resetBtn.disabled = false;
+        resetBtn.textContent = "Send Reset Link";
+        resetEmail.value = "";
+        successBox.classList.add("hidden");
+
+      }, 3000);
+
+    } catch (error) {
+      resetMessage.textContent = "No account found with this email.";
+      resetMessage.className = "reset-message reset-error";
+      resetBtn.disabled = false;
+      resetBtn.textContent = "Send Reset Link";
     }
   });
 }

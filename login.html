@@ -39,6 +39,46 @@
         <input type="password" id="loginPassword" placeholder="Enter your password" required>
         <span class="toggle-password" id="loginEye">👁</span>
       </div>
+      
+      <!-- ===== FORGOT PASSWORD MODAL TRIGGER ===== -->
+<p class="forgot-text">
+  <button type="button" id="openResetModal" class="forgot-link">
+    Forgot Password?
+  </button>
+</p>
+
+<!-- ===== RESET MODAL ===== -->
+<div id="resetModal" class="reset-modal hidden">
+  <div class="reset-content">
+
+    <h3>Reset Your Password</h3>
+
+    <p class="reset-sub">
+      Enter your registered email and we’ll send you a secure reset link. 
+      <br>Note: Please check your Spam folder for the link.
+    </p>
+
+    <input type="email" id="resetEmail" placeholder="Enter your email address" />
+
+    <button id="resetBtn" class="reset-btn">
+      Send Reset Link
+    </button>
+
+    <p id="resetMessage" class="reset-message"></p>
+
+<div id="resetSuccess" class="reset-success-box hidden">
+  <div class="checkmark-circle">
+    <div class="checkmark"></div>
+  </div>
+  <p>Reset link sent successfully! <br>Note: Please check your Spam folder for the link.</p>
+</div>
+
+    <button id="closeResetModal" class="reset-close">
+      ✕
+    </button>
+
+  </div>
+</div>
 
       <!-- LOGIN BUTTON -->
       <button id="loginBtn" class="gradient-btn full-btn">
