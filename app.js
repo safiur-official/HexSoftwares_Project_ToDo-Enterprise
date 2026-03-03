@@ -183,19 +183,26 @@ if (resetBtn) {
       // Show animated success
       successBox.classList.remove("hidden");
 
-      // Auto close after 3 seconds
+      // Auto close after 5 seconds
       setTimeout(() => {
-        resetModal.classList.add("hidden");
 
-        // Reset UI for next open
-        resetEmail.style.display = "block";
-        resetBtn.style.display = "block";
-        resetBtn.disabled = false;
-        resetBtn.textContent = "Send Reset Link";
-        resetEmail.value = "";
-        successBox.classList.add("hidden");
+  resetModal.style.opacity = "0";
 
-      }, 3000);
+  setTimeout(() => {
+    resetModal.classList.add("hidden");
+    resetModal.style.opacity = "1";
+
+    // Reset UI
+    resetEmail.style.display = "block";
+    resetBtn.style.display = "block";
+    resetBtn.disabled = false;
+    resetBtn.textContent = "Send Reset Link";
+    resetEmail.value = "";
+    successBox.classList.add("hidden");
+
+  }, 300);
+
+}, 5000);
 
     } catch (error) {
       resetMessage.textContent = "No account found with this email.";

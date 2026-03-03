@@ -301,7 +301,7 @@ body.dark {
   cursor: pointer;
 }
 
-/* ================= PREMIUM RESET MODAL ================= */
+/*  PREMIUM RESET MODAL  */
 
 .reset-modal {
   position: fixed;
@@ -314,6 +314,9 @@ body.dark {
   align-items: center;
   z-index: 999;
   animation: fadeIn 0.3s ease;
+}
+.reset-modal {
+  transition: opacity 0.3s ease;
 }
 
 .reset-content {
@@ -432,7 +435,7 @@ body.dark .reset-content input {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* ================= SUCCESS STATE ================= */
+/*  SUCCESS STATE  */
 
 .reset-success-box {
   margin-top: 10px;
@@ -472,7 +475,7 @@ body.dark .reset-content input {
   100% { opacity: 1; }
 }
 
-/* ================= LOGIN FORM SPACING FIX ================= */
+/*  LOGIN FORM SPACING FIX  */
 
 .login-form {
   display: flex;
@@ -488,7 +491,7 @@ body.dark .reset-content input {
 .form-row {
   width: 100%;
   display: flex;
-  justify-content: flex-start;   /* ← change here */
+  justify-content: flex-start;   
   align-items: center;
   margin-top: -6px;
   margin-bottom: 22px;
@@ -858,28 +861,9 @@ body.dark .status-select {
   color: #fff;
 }
 
-/* ================= CAPSULE ACTION BUTTONS ================= */
 
-.edit-btn,
-.delete-btn {
-  position: relative;
-  padding: 8px 18px;
-  border-radius: 50px;              /* Full capsule */
-  border: none;
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  transition: all 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: 38px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
 
-/* ================= REFINED CAPSULE ACTION BUTTONS ================= */
+/*  REFINED CAPSULE ACTION BUTTONS  */
 
 .edit-btn,
 .delete-btn {
@@ -896,7 +880,7 @@ body.dark .status-select {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  min-height: 32px;               /* reduced height */
+  min-height: 10px;               /* reduced height */
   box-shadow: 0 3px 10px rgba(0,0,0,0.12);
 }
 
