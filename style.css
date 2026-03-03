@@ -777,7 +777,7 @@ body {
 }
 
 /* 
-   PREMIUM DARK MODE SYSTEM
+    DARK MODE SYSTEM
 */
 
 body {
@@ -863,16 +863,16 @@ body.dark .status-select {
 
 
 
-/*  REFINED CAPSULE ACTION BUTTONS  */
+/*  CAPSULE ACTION BUTTONS  */
 
 .edit-btn,
 .delete-btn {
   position: relative;
-  padding: 6px 14px;              /* reduced from 8px 18px */
-  border-radius: 20px;            /* still capsule */
+  padding: 6px 14px;              
+  border-radius: 20px;            
   border: none;
   cursor: pointer;
-  font-size: 0.78rem;             /* slightly smaller */
+  font-size: 0.78rem;             
   font-weight: 600;
   letter-spacing: 0.2px;
   transition: all 0.22s ease;
@@ -880,11 +880,11 @@ body.dark .status-select {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  min-height: 10px;               /* reduced height */
+  min-height: 10px;               
   box-shadow: 0 3px 10px rgba(0,0,0,0.12);
 }
 
-/* ===== EDIT BUTTON ===== */
+/*  EDIT BUTTON  */
 .edit-btn {
   background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: #fff;
@@ -899,7 +899,7 @@ body.dark .status-select {
   transform: scale(0.96);
 }
 
-/* ===== DELETE BUTTON ===== */
+/*DELETE BUTTON  */
 .delete-btn {
   background: linear-gradient(135deg, #ff4d4d, #e63946);
   color: #fff;
@@ -1111,7 +1111,7 @@ body.dark .countdown {
   background: rgba(255,0,0,0.05);
 }
 
-/* ================= PREMIUM COMPLETION STATUS ================= */
+/*  COMPLETION STATUS  */
 
 .task-due.completed {
   font-weight: 600;
